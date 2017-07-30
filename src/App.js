@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, NavLink } from 'react-router-dom';
-import {Card, CardTitle, CardText,  RaisedButton, TextField} from 'material-ui';
+import {Link, NavLink} from 'react-router-dom';
+import {Card, CardTitle, CardText, RaisedButton, TextField} from 'material-ui';
 
 import './App.css';
 
 export const HomePage = () => (
     <Card className="container">
-        <CardTitle title="React Application" subtitle="This is the home page." />
+        <CardTitle title="React Application" subtitle="This is the home page."/>
     </Card>
 );
 
@@ -55,7 +55,7 @@ const SignUpForm = ({
             </div>
 
             <div className="button-line">
-                <RaisedButton type="submit" label="Create New Account" primary />
+                <RaisedButton type="submit" label="Create New Account" primary/>
             </div>
 
             {/*<CardText>Already have an account? <Link to={'/login'}>Log in</Link></CardText>*/}
@@ -106,7 +106,7 @@ const LoginForm = ({
             </div>
 
             <div className="button-line">
-                <RaisedButton type="submit" label="Log in" primary />
+                <RaisedButton type="submit" label="Log in" primary/>
             </div>
 
             {/*<CardText>Don't have an account? <Link to={'/signup'}>Create one</Link>.</CardText>*/}
@@ -121,7 +121,7 @@ LoginForm.propTypes = {
     user: PropTypes.object.isRequired
 };
 
-export const Base = ({ children }) => (
+export const Base = ({children}) => (
     <div>
         <div className="top-bar">
             <div className="top-bar-left">
