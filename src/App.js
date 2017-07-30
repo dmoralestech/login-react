@@ -1,14 +1,11 @@
-import React, { PropTypes } from 'react';
-import { Link, NavLink, browserHistory } from 'react-router-dom';
-import {Card, CardTitle, CardText,  RaisedButton, TextField, MuiThemeProvider} from 'material-ui';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import {Router } from 'react-router';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link, NavLink } from 'react-router-dom';
+import {Card, CardTitle, CardText,  RaisedButton, TextField} from 'material-ui';
+
 import './App.css';
 
-let getMuiTheme = require('material-ui/styles/getMuiTheme').default
-
-
-const HomePage = () => (
+export const HomePage = () => (
     <Card className="container">
         <CardTitle title="React Application" subtitle="This is the home page." />
     </Card>
@@ -61,7 +58,8 @@ const SignUpForm = ({
                 <RaisedButton type="submit" label="Create New Account" primary />
             </div>
 
-            <CardText>Already have an account? <Link to={'/login'}>Log in</Link></CardText>
+            {/*<CardText>Already have an account? <Link to={'/login'}>Log in</Link></CardText>*/}
+            {/*<CardText>Already have an account? <Link to={'/login'}>Log in</Link></CardText>*/}
         </form>
     </Card>
 );
@@ -111,7 +109,7 @@ const LoginForm = ({
                 <RaisedButton type="submit" label="Log in" primary />
             </div>
 
-            <CardText>Don't have an account? <Link to={'/signup'}>Create one</Link>.</CardText>
+            {/*<CardText>Don't have an account? <Link to={'/signup'}>Create one</Link>.</CardText>*/}
         </form>
     </Card>
 );
@@ -123,7 +121,7 @@ LoginForm.propTypes = {
     user: PropTypes.object.isRequired
 };
 
-const Base = ({ children }) => (
+export const Base = ({ children }) => (
     <div>
         <div className="top-bar">
             <div className="top-bar-left">
@@ -131,8 +129,8 @@ const Base = ({ children }) => (
             </div>
 
             <div className="top-bar-right">
-                <Link to="/login">Log in</Link>
-                <Link to="/signup">Sign up</Link>
+                <NavLink to="/login">Log in</NavLink>
+                <NavLink to="/signup">Sign up</NavLink>
             </div>
 
         </div>
@@ -146,7 +144,7 @@ Base.propTypes = {
     children: PropTypes.object.isRequired
 };
 
-class SignUpPage extends React.Component {
+export class SignUpPage extends React.Component {
 
     /**
      * Class constructor.
@@ -214,7 +212,7 @@ class SignUpPage extends React.Component {
 }
 
 
-class LoginPage extends React.Component {
+export class LoginPage extends React.Component {
 
     /**
      * Class constructor.
@@ -278,38 +276,3 @@ class LoginPage extends React.Component {
     }
 
 }
-
-
-const routes = {
-    // base component (wrapper for the whole application).
-    component: Base,
-    childRoutes: [
-
-        {
-            path: '/',
-            component: HomePage
-        },
-
-        {
-            path: '/login',
-            component: LoginPage
-        },
-
-        {
-            path: '/signup',
-            component: SignUpPage
-        }
-
-    ]
-};
-
-injectTapEventPlugin();
-
-const App = () => {
-    return (
-        <MuiThemeProvider muiTheme={getMuiTheme()}>
-            <Router history={browserHistory} routes={routes} />
-        </MuiThemeProvider>);
-}
-
-export default App;
