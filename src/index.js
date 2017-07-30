@@ -47,5 +47,5 @@ injectTapEventPlugin();
 
 ReactDOM.render(
     <MuiThemeProvider>
-        <LoginPage/>
+        <Base/>
     </MuiThemeProvider>, document.getElementById('root'));
